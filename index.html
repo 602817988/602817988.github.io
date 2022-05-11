@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<p>
+			【描述】<br />四个人比块头大，每人说了一句话。A说：不是我。<br />B说：是C。   C说：是B。   D说：他胡说。<br />已知这四个人有3人说了真话。请你编程找出谁是块头最大的人，输出相应的大写字母。<br />【输入】 没有输入。<br />【输出】<br />只输出大写字母(注意：大写！！！）。<br />【输入示例】无<br />【输出示例】A<br />【提示】<br />输出示例只是格式说明，并非正确答案。<br /> 
+			（10分）<br /> 
+			<br />参考答案：<br /><br />man = 'A'<br />while man <= 'D': count = 0<br />if man != 'A': count += 1<br />if man == 'C': count += 1<br />if man == 'B': count += 1<br />if man != 'B': count += 1<br />if count == 3: print(man) break;<br />man = chr(ord(man) + 1)<br /><br /><br /> 
+			【描述】<br />给定M行N列的整数矩阵A，如果A的非边界元素A[i][j]大于相邻的上下左右4个元素，那么就称元素A[i][j]是矩阵的局部极大值。求给定矩阵的全部局部极大值及其所在的位置。<br />【输入】<br />在第一行中给出矩阵A的行数M和列数N（3≤M,N≤20）；下面M行，每行给出A 在该行的N个元素的值。数字间以空格分隔。<br />【输出】<br />每行按照“元素值 行号 列号”的格式输出一个局部极大值，其中行、列编号从1开始。要求按照行号递增输出；若同行有超过1个局部极大值，则该行按列号递增输出。若没有局部极大值，则输出“None 总行数 总列数”。<br />【输入示例】<br /><br /><br /><br /><br />】<br /> 
+			（10分）<br /> 
+			参考答案：<br /><br />def main():<br />line = input().split() m = eval(line[0])<br />n = eval(line[1]) matrix = []<br />for row in range(m): matrix.append([])<br />line = input().split()<br />matrix[row] = [eval(x) for x in line] flag = False;<br />for row in range(1, m - 1):<br />for col in range(1, n - 1):<br />if matrix[row][col] > matrix[row - 1][col] and \ matrix[row][col] > matrix[row + 1][col] and \ matrix[row][col] > matrix[row][col - 1] and \ matrix[row][col] > matrix[row][col + 1]:<br />flag = True<br />print("%d %d %d" % (matrix[row][col], row + 1, col + 1)) if not flag:<br />print("None %d %d" % (m, n))<br /><br />main()<br /><br /><br /> 
+			【描述】<br />定义一个Rectangle类，表示矩形。Rectangle类包括：<br /> 
+			（10分）<br /> 
+			<br />私有数据域width和height，表示矩形的宽和高。<br />构造方法，将矩形的宽和高设置为给定的参数。宽的默认参数值为1， 高的默认参数值为2。<br />更改器方法setWidth和setHeight，分别用于修改矩形的宽和高。访问器方法getWidth和getHeight，分别用于访问矩形的宽和高。成员方法getArea，返回矩形的面积。<br />成员方法getPerimeter，返回矩形的周长。<br /><br />【输入】有两行。<br />每一行中给出矩形的宽度和高度，其间以空格分隔。<br />【输出】<br />对每一行输入，输出对应的面积和周长，其间以空格分隔，结果保留1位小数。<br />【输入示例】5 40<br />10 3.5<br />【输出示例】200.0 90.0<br />35.0 27.0<br />【提示】<br />只需编写Rectangle类，递交时会测试该类。<br /><br />参考答案：<br /><br />class Rectangle:<br />def init (self, width = 1, height = 2): self. width = width<br />self. height = height<br /><br />def setWidth(self, width): self. width = width<br /><br />def getWidth(self): return self. width<br /> 
+			def setHeight(self, height): self. height = height<br /><br />def getHeight(self): return self. height<br /><br />def getArea(self):<br />return self. width * self. height<br /><br />def getPerimeter(self):<br />return 2 * (self. width + self. height)<br /><br />def main():<br />line = input().split() width = eval(line[0]) height = eval(line[1]) rect1 = Rectangle() rect1.setWidth(width) rect1.setHeight(height) line = input().split() width = eval(line[0]) height = eval(line[1])<br />rect2 = Rectangle(width, height)<br />print("%.1f %.1f" % (rect1.getArea(), rect1.getPerimeter())) print("%.1f %.1f" % (rect2.getArea(), rect2.getPerimeter()))<br /><br />main()<br /><br /><br /> 
+			【描述】<br />定义函数：def squareRoot(value)，返回value的平方根。<br />编写一个main函数，读入一个数，调用squareRoot函数，输出该数的平方根。注意：不能使用数学函数sqrt。<br />可以通过对下面公式的反复计算近似地得到平方根：<br /><br /><br />当nextGuess和lastGuess几乎相同时，nextGuess就是平方根的近似值。nextGuess最初的猜测值可以是任意一个值（例如1.0）。这个值就是lastGuess的初始值。如果nextGuess和lastGuess的差小于一个很小的数（例如0.000001），就可以认为nextGuess是value平方根的近似值；否则， nextGuess就赋值给lastGuess，迭代过程继续进行。<br />【输入】<br />一行中给出一个数。<br />【输出】<br />输出该数的平方根，结果保留6位小数。。<br />【输入示例】2<br />【输出示例】1.414214<br /> 
+			（10分）<br /> 
+			<br />参考答案：<br /><br />import math<br /><br />def squareRoot(value): nextGuess = 1.0<br />lastGuess = 0.0<br />while math.fabs(nextGuess - lastGuess) >= 0.000001: lastGuess = nextGuess<br />nextGuess = (lastGuess + (value / lastGuess)) * 0.5<br /> 
+			return nextGuess<br /><br />def main():<br />value = eval(input()) print(format(squareRoot(value), ".6f"))<br /><br />main()<br /><br /><br /> 
+			【描述】<br />编写程序，输出前n（n≤100）个回文素数，每行显示5个，并适当对齐。回文素数是这样一种素数：本身为素数且也是回文数。例如，131是素数，也是回文数。<br />定义函数：def isPrime(n)，判断n是否是素数，如果是素数，返回True，否则返回False。<br />定义函数：def isPalindrome(n)，判断n是否是回文数，如果n是回文数，返回True，否则返回False。<br />编写一个main函数，输入一个正整数n，调用isPrime和isPalindrome函数，输出前n个回文素数。<br />【输入】<br />一行中给出一个正整数n。<br />【输出】<br />输出前n个回文素数，每行显示5个，每个宽度为6。<br />【输入示例】10<br />【输出示例】<br />
+			2	3	5	7	11
+			101	131	151	181	191
+			<br />【提示】<br /><br />对于整数i，如果isPrime(i)与isPalindrome(i)的返回值都是true，i即为回文素数。<br /> 
+			（10分）<br /> 
+			<br />参考答案：<br /><br />def isPrime(n): flag = True<br />for divisor in range(2, n // 2 + 1): if n % divisor == 0:<br />flag = False break<br />return flag<br /><br />def isPalindrome(n): result = 0<br />if n < 0:<br />n = -n temp = n<br />while temp != 0: remainder = temp % 10<br />result = result * 10 + remainder temp //= 10<br />return n == result<br /><br />def main():<br />n = eval(input()) count = 0<br />i = 2<br />while count < n:<br />if isPrime(i) and isPalindrome(i): print(format(i, "6d"), end = '') count += 1<br />if count % 5 == 0:<br /> 
+			print()<br />i += 1<br /><br />main()<br /><br /><br /> 
+			【描述】<br />分数可以表示为“分子/分母”的形式。编写程序，输入一个分数，然后将其约分为最简分式。最简分式是指分子和分母不具有可以约分的成分了。如6/12 可以被约分为1/2。当分子大于分母时，不需要表达为整数又分数的形式，即11/8还是11/8；而当分子分母相等时，仍然表达为1/1的分数形式。<br />定义函数：def gcd(m,n)，返回m和n的最大公约数。<br />编写一个main函数，输入一个分数，调用gcd函数，将该分数约分为最简分式并输出。<br />【输入】<br />在一行中给出一个分数，分子和分母中间以斜杠“/”分隔，如：12/34。分子和分母都是正整数（不包含0）。<br />【输出】<br />在一行中输出这个分数对应的最简分式，格式与输入相同，如 6/17。<br />【输入示例】60/120<br />【输出示例】1/2<br /> 
+			（10分）<br /> 
+			<br />参考答案：<br /><br />def gcd(m, n): g = 1<br />k = 2<br />while (k <= m) and (k <= n):<br />if (m % k == 0) and (n % k == 0): g = k<br />k += 1<br />return g<br /><br />def main():<br />line = input().split('/') n = eval(line[0])<br />d = eval(line[1]) g = gcd(n, d)<br />print(n // g, "/", d // g, sep = '')<br /><br />main()<br /><br /><br /> 
+			【描述】<br />有三个回文数字，第一个是两位数，第二个是三位数。将这两个回文数字相加得到第三个数字，这是个四位数。请问第三个回文数字是多少？<br />【输入】 没有输入。<br />【输出】<br />输出第三个回文数字。<br /> 
+			（10分）<br /> 
+			<br />参考答案：<br /><br />def reverse(x): sum = 0<br />while x != 0 : remainder = x % 10<br />sum = sum * 10 + remainder x //= 10<br />return sum<br /><br />def main():<br /> 
+			lst1 = []<br />for i in range(10, 100): if i == reverse(i):<br />lst1.append(i)<br /><br />lst2 = []<br />for i in range(100, 1000): if i == reverse(i):<br />lst2.append(i)<br /><br />lst3 = []<br />for i in range(1000, 10000): if i == reverse(i):<br />lst3.append(i)<br /><br />for i in lst1:<br />for j in lst2:<br />for k in lst3:<br />if i + j == k: print(k)<br /><br />main()<br /><br /><br /> 
+			【描述】<br />定义函数：def formatted_print(dictionary)，该函数接受一个字典作为参数，字典的键是学生姓名，字典的值是对应学生的平均分数。函数按照如下所指定的格式打印学生姓名及其对应的平均分数。<br />例如，如果输入的字典是：{'john':34.480,'eva':88.5, 'alex':90.55, 'tim': 65.900}，函数打印出如下信息：<br />
+			alex	90.55
+			eva	88.50
+			tim	65.90
+			john	34.48
+			<br />姓名输出宽度10且左对齐；平均分数输出宽度6，保留2位小数，且右对齐。所有这些信息按照学生的平均分数降序排序输出。<br />【输入】<br />每一行输入姓名、平均分数，其间以逗号分隔。每行数据构成字典的一个键值对。可能会有多行输入。<br />【输出】<br />见【输出示例】。<br />【输入示例】john,34.480 eva,88.5 alex,90.55 tim,65.900<br />【输出示例】<br />
+			alex	90.55
+			eva	88.50
+			tim	65.90
+			john	34.48
+			<br />参考答案：<br /><br />def formatted_print(dictionary):<br />d = {value:key for key, value in dictionary.items()} lst = sorted(list(d.items()), reverse=True)<br />for i in range(len(lst)): print("{0:10s}{1:>6.2f}".format(lst[i][1], lst[i][0]))<br /><br />def main():<br />d = {}<br /> 
+			（10分）<br /> 
+			sentinel = ''<br />for line in iter(input, sentinel): line = line.split(',') d[line[0]] = float(line[1])<br />formatted_print(d)<br /><br />main()<br /><br /><br /> 
+			【描述】<br />突然有一天，你忘记了今天是星期几，中国人凑吉利，所以你找来了八个人， 让他们每人说两句话，第一句为今天星期几，另一句为今天不是星期几，并且两句中一句真，一句假。可能第一句是真，也可能第二句是真。最后请你确定今天是星期几，并输出。<br />【输入】                                           8行，每行是两个星期几的阿拉伯数字表示，用空格分开。<br />【输出】<br />一个数字，表示今天星期几。<br />【输入示例】
+			1	2
+			2	6
+			3	4
+			5	1
+			7	7
+			1	5
+			1	4
+			4	2
+			【输出示例】7<br /> 
+			（10分）<br /> 
+			<br />参考答案：<br /><br />def main():<br />a = []<br />b = []<br />for i in range(8):<br />line = input().split() a.append(eval(line[0]))<br />b.append(eval(line[1])) for j in range(1, 8):<br />count = 0<br />for k in range(8):<br />if (not (a[k] == j) and (b[k] != j)) or ((a[k] == j) and not (b<br />[k] != j)):<br />count += 1<br />if count == 8: print(j)<br /><br />main()<br /><br /><br /> 
+			【描述】<br />两个单词如果包含相同的字母，次序不同，则称为字母易位词（anagram）。例如，"silent"和"listen"是字母易位词。<br />定义函数：def isAnagram(s1, s2)，检查两个单词是否是字母易位词，如果是，返回True；否则返回False。<br />编写一个main函数，输入两个单词，调用isAnagram函数，显示True或False。<br />【输入】<br />有两行，分别对应两个单词。<br />【输出】<br />若两个单词是字母易位词，输出True，否则输出False。<br />【输入示例】silent listen<br /> 
+			（10分）<br /> 
+			【输出示例】True<br />【 提 示 】          join函数用于连接字符串。<br />list = ['my','name','is','bob'] '_'.join(list)<br />结果为：'my_name_is_bob'<br /><br />sorted函数返回排序后的副本<br /><br />参考答案：<br /><br />def isAnagram(s1, s2):<br />if len(s1) != len(s2): return False<br />newS1 = "".join(sorted(s1)) newS2 = "".join(sorted(s2)) if newS1 != newS2:<br />return False return True<br /><br />def main():<br />str1 = input() str2 = input()<br />print(isAnagram(str1, str2))<br /><br />main()<br /><br /><br /> 
+			【描述】<br />定义函数：def  row_maximums(two_dimensional_list)，该函数接受一个二维数值列表作为参数，二维数值列表中的每一行可能有不同的列数；返回一个二维元组，内嵌元组的元素由形如"row i max"的字符串（i表示行数，从0开始）和对应行的最大值构成。二维元组按"row i max"升序排序。<br />例如，如果输入的二维列表是：[[5, 0, 0, 0, 13], [0, 12, 0, 0], [20,<br />0, 11, 0], [6, 0, 0, 8]]，函数返回二维元组：(('row 0 max', 13),<br />('row 1 max', 12),('row 2 max', 20), ('row 3 max', 8))。<br />【输入】<br />每一行输入数值，数值间以一个空格分隔。每行数据构成二维列表的一个内嵌列表。可能会有多行输入。<br />【输出】<br />一个二维元组。<br />【输入示例】<br /><br />5 0 0 0 13<br />0 12 0 0<br />20 0 11 0<br />6 0 0 8<br /><br />【输出示例】<br /><br />(('row 0 max', 13), ('row 1 max', 12), ('row 2 max', 20), ('row 3 ma<br />x', 8))<br /> 
+			（10分）<br /> 
+			<br />参考答案：<br /><br />def row_maximums(two_dimensional_list): length = len(two_dimensional_list) d = {}<br />for row in range(length):<br />key = "row " + str(row) + " max" maxValue = two_dimensional_list[row][0]<br />for col in range(len(two_dimensional_list[row])): if maxValue < two_dimensional_list[row][col]: maxValue = two_dimensional_list[row][col]<br /> 
+			d[key] = maxValue<br />t = tuple(sorted(list(d.items()))) return t<br /><br />def main():<br />matrix = [] sentinel = ''<br />for line in iter(input, sentinel):<br />value = [eval(x) for x in line.split()] matrix.append(value)<br />print(row_maximums(matrix))<br /><br />main()<br /><br /><br /> 
+			【描述】<br />编写程序，求最大公约数。<br />【输入】<br />每一行输入两个数m、n（均为正整数），其间以空格分隔。可能会有多行输入。<br />【输出】<br />输出m、n的最大公约数<br />【输入示例】12 16<br />9 7<br />2 10<br />【输出示例】4<br />1<br />2<br /> 
+			（10分）<br /> 
+			<br />参考答案：<br /><br />flag = False while not flag:<br />try:<br />line = input().split() m = eval(line[0])<br />n = eval(line[1]) gcd = 1<br />k = 2<br />while (k <= m) and (k <= n):<br />if (m % k == 0) and (n % k == 0): gcd = k<br />k += 1<br />print(gcd) except EOFError:<br />flag = True<br /><br /><br /> 
+			【描述】<br />对数字求特征值是常用的编码算法，奇偶特征是一种简单的特征值。对于一个整数，从个位开始对每一位数字编号，个位是1号，十位是2号，以此类推。这个整数在第n位上的数字记作x，如果x和n的奇偶性相同，则记下一个1，否则记下一个0。按照整数的顺序把对应位的表示奇偶性的0和1都记录下来，就形成了一个二进制数字。比如，对于342315，这个二进制数字就是001101。<br />这里的计算可以用下面的表格来表示：<br /> 
+			（10分）<br /> 
+			 <br /><br />按照二进制位值将1的位的位值加起来就得到了结果13。<br />你的程序要读入一个非负整数，整数的范围是[0,1000000]，然后按照上述算法计算出表示奇偶性的那个二进制数字，输出它对应的十进制值。<br />【输入】<br />一个非负整数，整数的范围是[0,1000000]。<br />【输出】<br />一个整数，表示计算结果。<br />【输入示例】342315<br />【输出示例】13<br />【提示】<br />将整数从右向左分解，数位每次加1，而二进制值每次乘2。<br /><br />参考答案：<br /><br />value = eval(input()) sum = 0<br />count = 1<br />while value != 0: remainder = value % 10<br />flag1 = 1 if remainder % 2 != 0 else 0<br />flag2 = 1 if count % 2 != 0 else 0<br />if (flag1 == 1 and flag2 == 1) or (flag1 == 0 and flag2 == 0): mul = 1<br />for i in range(count - 1): mul *= 2<br />sum += mul count += 1<br />value //= 10 print(sum)<br /><br /><br /> 
+			【描述】<br />定义函数：def  dictionary_to_tuples(dictionary)，该函数接受一个字典作为参数；返回一个二维元组，第一个内嵌元组是字典的键，第二个内嵌元组是字典的值。<br />例如，如果输入的字典是：{1:'a', 2:'b', 3:'c', 4:'d'}，函数返回元组：<br />((1, 2, 3, 4), ('a', 'b', 'c', 'd'))。<br />【输入】<br />每一行输入键（整数）及其对应的值（字符串），其间以逗号分隔。每行数据构成字典的一个键值对。可能会有多行输入。<br />【输出】<br />见【输出示例】。<br />【输入示例】<br /><br />1,a<br />2,b<br /> 
+			（10分）<br /> 
+			3,c<br />4,d<br /><br />【输出示例】<br /><br />((1, 2, 3, 4), ('a', 'b', 'c', 'd'))<br /><br />参考答案：<br /><br />def dictionary_to_tuples(dictionary):<br />t = tuple(sorted(list(dictionary.items()))) keys = []<br />values = []<br />for i in range(len(t)): keys.append(t[i][0])<br />values.append(t[i][1])<br />return tuple(keys), tuple(values)<br /><br />def main():<br />d = {}<br />sentinel = ''<br />for line in iter(input, sentinel): line = line.split(',') d[int(line[0])] = line[1]<br />print(dictionary_to_tuples(d))<br /><br />main()<br /><br /><br /> 
+			【描述】<br />编写程序，输入两个正整数a、b(2≤a<b≤1000000)，找出[a,b]之间的素数， 由小到大输出。<br />【输入】<br />每一行输入两个正整数a、b，其间以空格分隔。可能会有多行输入。<br />【输出】<br />输出[a,b]之间的素数，其间以空格分隔。每个输出占一行。<br />【输入示例】2 5<br />3 11<br />【输出示例】2 3 5<br />3 5 7 11<br /> 
+			（10分）<br /> 
+			<br />参考答案：<br /><br />flag = False while not flag:<br />try:<br />line = input().split() a = eval(line[0])<br />b = eval(line[1])<br />for i in range(a, b + 1): isPrime = True;<br />for divisor in range(2, i // 2 + 1): if i % divisor == 0:<br />isPrime = False break<br />if isPrime:<br />print(i, end = ' ')<br />print() except EOFError:<br />flag = True<br /> 
+			【描述】<br />一个正整数的因子是所有可以整除它的正整数。而一个数如果恰好等于除它本身外的因子之和，这个数就称为完数。例如6是完数，6=1+2+3（6的因子是1、2、3）。<br />定义函数：def isPerfectNumber(n)，判断n是否是素数完数，如果是完数， 返回True，否则返回False。<br />编写一个main函数，读入两个正整数n和m（1≤n＜m＜1000），输出[n, m]范围内所有的完数。<br />【输入】<br />一行中给出两个正整数，其间以空格分隔。<br />【输出】<br />输出[n, m]范围内所有的完数，其间以空格分隔，最后一个数字后面没有空格。如果没有完数，则输出一个空行。<br />【输入示例】1 10<br />【输出示例】6<br /> 
+			（10分）<br /> 
+			<br />参考答案：<br /><br />def isPerfectNumber(n): sum = 0<br />for i in range(1, n // 2 + 1): if n % i == 0:<br />sum += i return sum == n<br /><br />def main():<br />line = input().split() n = eval(line[0])<br />m = eval(line[1]) flag = True<br />for i in range(n, m + 1): if isPerfectNumber(i):<br />if flag:<br />print(i, end = '') flag = False<br />else:<br />print(' ', i, sep = '', end = '')<br />print()<br /><br />main()<br /><br /><br /> 
+			【描述】<br />你的程序要读入一行文本，其中以空格分隔为若干个单词，以'.'结束。你要输出这行文本中每个单词的长度。这里的单词与语言无关，可以包括各种符号，比如"it's"算一个单词，长度为4。注意，行中可能出现连续的空格。<br />【输入】<br />输入在一行中给出一行文本，以'.'结束，结尾的句号不能计算在最后一个单词的长度内。<br />【输出】<br />在一行中输出这行文本对应的单词的长度，每个长度之间以空格隔开，行末没有最后的空格。<br />【输入示例】<br />It's great to see you here.<br />【输出示例】4 5 2 3 3 4<br /> 
+			（10分）<br /> 
+			<br />参考答案：<br /><br />def main():<br />line = input()<br />words = line.replace('.', ' ').split()<br /> 
+			for i in range(len(words) - 1): print(len(words[i]), end = ' ')<br />print(len(words[len(words) - 1]))<br /><br />main()<br /><br /><br /> 
+			【描述】<br />逆序输出一个整数中的数字。要求定义和调用递归函数：def reverse(n)，该函数返回逆序后的整数。<br />【输入】<br />输入一个整数。<br />【输出】<br />逆序输出该整数。<br />【输入示例】12345<br />【输出示例】54321<br /> 
+			（10分）<br /> 
+			<br />参考答案：<br /><br />def reverse(n):<br />str = chr(n % 10 + ord('0')) if n > 10:<br />str += reverse(n // 10) return str<br /><br />def main():<br />n = eval(input()) print(reverse(n))<br /><br />main()<br /><br /><br /> 
+			【描述】<br />显示正弦曲线y=35sin(x)在[0,2*PI)的部分与x轴围成的图形。<br />要求：从x=0开始，每隔PI/30的距离在屏幕上输出一行，图形内的部分<br />用'*'表示，图形外的部分用空格表示。曲线边界按y的绝对值四舍五入取整。(x=0,y=0)这个点在第一行的第36个字符处用'*'表示。 图形的前几行是<br /> 
+			（10分）<br /> 
+			<br />"	*"<br />"	*****"<br />"	********"<br />"	************"<br />"	***************"<br /><br />问在输出的第n行中，有几个连续的'*'，'*'之前有几个空格。<br /><br />【输入】输入n<br />【输出】<br />输出两个数，中间以空格隔开<br />【输入示例】2<br />【输出示例】5 35<br />【提示】<br />*的个数就是第n行对应的x值经过方程y=35sin(x)得出的y值的绝对值四舍五入取整后的数目加1（因为在"x轴"上也有一个*，此时y=0）。比如题目中给出的第二行，第二行对应的x应该是区间[0,2*PI)以PI/30为步进的第二个点，即PI/30，则此时y值为35sin(PI/30)=3.658496，四舍五入后得4，故此时*的个数为5个，因为结果为正，所以*全部在"x轴"上方，故而此时空格的个数就是35个（因为(x=0,y=0)这个点在第一行的第36个字符处用'*'表示，所以"x<br />轴"下方的空格就是35个）。<br /> 
+			参考答案：<br /><br />import math def main():<br />a = []<br />b = [] x = 0.0<br />i = 0<br />while x < 2 * math.pi:<br />y = 35 * math.sin(x) if y >= 0:<br />a.append(int(y + 0.5) + 1) if a[i] > 35:<br />a[i] = 35<br />b.append(35) else:<br />a.append(abs(int(y - 0.5)) + 1) if a[i] > 35:<br />a[i] = 35<br />b.append(35 - a[i] + 1) i += 1<br />x += math.pi / 30 n = eval(input())<br />print(a[n - 1], b[n - 1])<br /><br />main()<br /><br /><br /> 
+			【描述】<br />定义函数：def number_to_words(number)，该函数接受一个整数作为参数； 返回一个小写英文字符串，字符串的单词描述了该整数。<br />例如，如果输入的整数是：4721，函数返回字符串："four seven twoone"。<br />【输入】<br />输入一个整数。<br />【输出】<br />整数的英文单词描述（单词之间以一个空格间隔）。<br />【输入示例】<br /><br />4721<br /><br />【输出示例】<br /><br />four seven two one<br /> 
+			（10分）<br /> 
+			<br />参考答案：<br /><br />def number_to_words(number): digit_dictionary = {"1" : "one",<br />"2" : "two",<br />"3" : "three",<br />"4" : "four",<br />"5" : "five",<br />"6" : "six",<br />"7" : "seven",<br />"8" : "eight",<br />"9" : "nine",<br />"0" : "zero"}<br />output_string = "" if number < 0:<br />number = -number output_string = "negative "<br />string_input = str(number) splitted = list(string_input) for i in splitted:<br />output_string += digit_dictionary[i] + " "<br /> 
+			stripped = output_string.rstrip(" ") return stripped<br /><br />def main():<br />number = eval(input()) print(number_to_words(number))<br /><br />main()<br /><br /><br /> 
+			【描述】<br />对于任意一个正整数，如果是奇数，则乘3加1，如果是偶数，则除以2，得到的结果再按照上述规则重复处理，最终总能够得到1。例如，假定初始正整数为5，计算过程分别为16、8、4、2、1。要求定义和调用递归函数：def guess(n)，输出计算过程。<br />【输入】<br />输入一个正整数。<br />【输出】<br />从输入整数到1的步骤，每一步为一行，每一步中描述计算过程，最后一行输出“End”。如果输入为1，直接输出“End”。<br />【输入示例】5<br />【输出示例】5*3+1=16<br />16/2=8<br />8/2=4<br />4/2=2<br />2/2=1<br />End<br /> 
+			（10分）<br /> 
+			<br />参考答案：<br /><br />def guess(n):<br />if n == 1:<br />print("End") elif n % 2 != 0:<br />print("%d%s%d" % (n, "*3+1=", n * 3 + 1)) guess(n * 3 + 1)<br />else:<br />print("%d%s%d" % (n, "/2=", n // 2)) guess(n // 2)<br /><br />def main():<br />n = eval(input()) guess(n)<br /><br />main()<br /><br /><br /> 
+			【描述】<br />计算个人在物品上的花费。<br />【输入】<br />每一行输入物品名、价格，其间以逗号分隔。在物品名或价格之前或之后可能存在空格。可能会有多行输入。<br />【输出】<br />返回一个基于物品名排序的元组列表。每个元组由物品名和购买该物品的总费用组成。物品的总费用由$开头，保留2位小数。<br />【输入示例】<br /><br />milk,2.35 bread , 1.95<br />chips ,	2.54<br />milk ,	2.38<br />milk,2.31 bread,	1.90<br /> 
+			（10分）<br /> 
+			【输出示例】<br />[('bread', '$3.85'), ('chips', '$2.54'), ('milk', '$7.04')]<br /><br />参考答案：<br /><br />def main():<br />d = {}<br />sentinel = ''<br />for line in iter(input, sentinel): line = line.strip().split(',') item = line[0].strip()<br />price = float(line[1].strip()) if item not in d:<br />d[item] = price else:<br />d[item] += price lst = []<br />keys = sorted(d.keys()) for x in keys:<br />lst.append((x, "${0:.2f}".format(d[x]))) print(lst)<br /><br />main()<br /><br /><br /> 
+			【描述】<br />定义函数：def multiplyMatrix(a, b)，实现矩阵a和矩阵b相乘，返回相乘结果。<br />编写一个main函数，输入矩阵a和b，调用multiplyMatrix函数，显示矩阵a和b 相乘结果。<br />【输入】<br />一行中给出矩阵a的行数和列数以及矩阵b的行数和列数，其间以空格分隔。接着按矩阵a的行列数输入矩阵a的值。<br />然后按矩阵b的行列数输入矩阵b的值。<br />【输出】<br />输出矩阵a和矩阵b相乘结果。元素间以空格分隔。<br />【输入示例】
+			3	2 2 3
+			5	7
+			8	3
+			7	4
+			12 3 6<br />4 2 7<br />【输出示例】88 29 79<br />108 30 69<br />100 29 70<br /> 
+			（10分）<br /> 
+			<br />参考答案：<br /><br />def multiplyMatrix(a, b): c = []<br />for row in range(len(a)): c.append([])<br />for col in range(len(b[0])): c[row].append(0)<br />for i in range(len(c)):<br />for j in range(len(c[0])):<br />for k in range(len(a[0])): c[i][j] += a[i][k] * b[k][j]<br />return c<br /><br />def printMatrix(m):<br /> 
+			for row in range(len(m)):<br />for col in range(len(m[row])): print(m[row][col], end = ' ')<br />print()<br /><br />def main():<br />line = input().split() a_row = eval(line[0]) a_col = eval(line[1]) b_row = eval(line[2]) b_col = eval(line[3]) a = []<br />for row in range(a_row): a.append([])<br />line = input().split()<br />a[row] = [eval(x) for x in line] b = []<br />for row in range(b_row): b.append([])<br />line = input().split()<br />b[row] = [eval(x) for x in line] c = multiplyMatrix(a, b) printMatrix(c)<br /><br />main()<br /><br /><br /> 
+			【描述】<br />如在汉诺塔游戏中，我们希望将塔A上的n个盘子，通过塔B移动到塔C，则对于任意输入的n，给出移动的步骤。<br />【输入】<br />一个正整数n。<br />【输出】 移动的步骤<br />【输入示例】2<br />【输出示例】<br />Move 1 from A to B Move 2 from A to C Move 1 from B to C<br /> 
+			（10分）<br /> 
+			<br />参考答案：<br /><br />def hanoi(x, A, B, C): if x==1:<br />print('Move', x, 'from', A, 'to', C) else:<br />hanoi(x - 1, A, C, B)<br />print('Move', x, 'from', A, 'to', C) hanoi(x - 1, B, A, C)<br /><br />def main():<br />n = int(input()) hanoi(n, 'A', 'B','C')<br /><br />main()<br /><br />
+
+		</p>
+	</body>
+</html>
